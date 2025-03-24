@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Temporary Mobile Numbers</title>
+    <script>
+        function copyNumber(number) {
+            navigator.clipboard.writeText(number);
+            alert("Copied: " + number);
+        }
+
+        function fetchNumbers() {
+            document.getElementById("numbers").innerHTML = `
+                <li>+1 234-567-8901 <button onclick="copyNumber('+12345678901')">Copy</button></li>
+                <li>+44 987-654-3210 <button onclick="copyNumber('+449876543210')">Copy</button></li>
+                <li>+91 876-543-2109 <button onclick="copyNumber('+918765432109')">Copy</button></li>
+            `;
+        }
+
+        function fetchOTP() {
+            document.getElementById("otpMessages").innerHTML = "Your OTP: 456789";
+        }
+    </script>
+</head>
+<body onload="fetchNumbers()">
+    <h2>Temporary Mobile Numbers</h2>
+    <ul id="numbers"></ul>
+
+    <h3>Enter Number to Get OTP</h3>
+    <input type="text" id="userNumber" placeholder="Enter your number">
+    <button onclick="fetchOTP()">Get OTP</button>
+
+    <h3>Received OTPs</h3>
+    <div id="otpMessages">No OTPs yet...</div>
+</body>
+</html>
